@@ -15,7 +15,13 @@ RequireCache.snapshot = function () {
 RequireCache.prototype.clear = function () {
   for (var key in require.cache) {
     if ( ! this.cache[key]) {
-      delete require.cache[key]
+      // Avoid deleting native modules...
+      // they don't re-register cleanly.
+      if (/\.node$/.test(require.cache[key].id)) {
+        cache[key] = true
+      } else {
+        delete require.cache[key]
+      }
     }
   }
 }
