@@ -1,6 +1,6 @@
 {
   "name": "gulp-matcha",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Gulp task for matcha benchmark tool",
   "main": "index.js",
   "author": "Stephen Belanger <admin@stephenbelanger.com>",
