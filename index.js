@@ -28,7 +28,7 @@ module.exports = function (options) {
     var d = domain.create()
 
     d.on('error', function (err) {
-      cache.clean()
+      cache.clear()
       stream.emit('error', new gutil.PluginError('gulp-matcha', err, {
         stack: err.stack,
         showStack: true
@@ -39,7 +39,7 @@ module.exports = function (options) {
       var runner = new matcha.Runner(suite)
       reporter(runner, matcha.utils)
       runner.run(function () {
-        cache.clean()
+        cache.clear()
         stream.emit('end')
       })
     })
