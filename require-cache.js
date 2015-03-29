@@ -18,7 +18,7 @@ RequireCache.prototype.clear = function () {
       // Avoid deleting native modules...
       // they don't re-register cleanly.
       if (/\.node$/.test(require.cache[key].id)) {
-        cache[key] = true
+        this.cache[key] = true
       } else {
         delete require.cache[key]
       }
