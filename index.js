@@ -13,9 +13,14 @@ module.exports = function (options) {
     style: options.ui || 'bdd'
   })
 
-  var reporter = require(
-    'matcha/lib/matcha/reporters/' + (options.reporter || 'clean')
-  )
+  var reporter
+  if (typeof options.reporter === 'function') {
+    reporter = options.reporter
+  } else {
+    reporter = require(
+      'matcha/lib/matcha/reporters/' + (options.reporter || 'clean')
+    )
+  }
 
   var cache = new RequireCache()
 
